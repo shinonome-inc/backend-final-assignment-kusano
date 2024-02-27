@@ -10,7 +10,12 @@
     <nav>
       <ul>
 				<li><a href="{% url 'welcome:welcome' %}">Twitter Clone</a></li>
-        <li><a href="{% url 'accounts:signup' %}">Sign up</a></li>
+        {% if request.user.is_authenticated %}
+        <li><a href="{% url 'accounts:logout' %}">Logout</a></li>
+        {% else %}
+        <li><a href="{% url 'accounts:signup' %}">登録</a></li>
+        <li><a href=" {% url 'accounts:login' %}">ログイン</a></a></li>
+        {% endif %}
       </ul>
     </nav>
   </header>
