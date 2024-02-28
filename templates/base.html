@@ -12,6 +12,7 @@
 				<li><a href="{% url 'welcome:welcome' %}">Twitter Clone</a></li>
         {% if request.user.is_authenticated %}
         <li><a href="{% url 'accounts:logout' %}">Logout</a></li>
+        <li><a href="{% url 'accounts:user_profile' request.user %}">{{ user.get_username }}</a></li>
         {% else %}
         <li><a href="{% url 'accounts:signup' %}">登録</a></li>
         <li><a href=" {% url 'accounts:login' %}">ログイン</a></a></li>
